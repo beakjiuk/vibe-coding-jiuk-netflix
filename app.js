@@ -204,7 +204,7 @@ function escapeHtml(text) {
 }
 
 async function fetchNowPlaying() {
-  const url = new URL(NOW_PLAYING_URL);
+  const url = new URL(NOW_PLAYING_URL, window.location.origin);
   url.searchParams.set("language", "ko-KR");
   url.searchParams.set("page", "1");
 
@@ -217,7 +217,7 @@ async function fetchNowPlaying() {
 }
 
 async function fetchMovieDetail(movieId) {
-  const url = new URL(MOVIE_DETAIL_URL);
+  const url = new URL(MOVIE_DETAIL_URL, window.location.origin);
   url.searchParams.set("id", String(movieId));
   url.searchParams.set("language", "ko-KR");
 
