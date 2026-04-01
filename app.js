@@ -272,6 +272,8 @@ function closeModal() {
   modalEl.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   if (modalLastFocusEl) modalLastFocusEl.focus();
+  // 모달을 닫은 뒤 자동 넘김이 다시 이어지도록 이전 pause 구간을 해제
+  autoplayPausedUntil = Date.now();
 }
 
 function setModalLoading(title) {
