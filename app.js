@@ -360,7 +360,7 @@ async function load() {
     renderGrid(results);
     updateNavButtons();
     snapToIndex(0, false);
-    setStatus(`${results.length}편 상영 중 — 포스터를 눌러 디테일 보기`);
+    setStatus(`${results.length}편 상영 중`);
   } catch (err) {
     console.error(err);
     setStatus(`에러: ${err?.message || "불러오기에 실패했어요."}`);
