@@ -1,0 +1,7 @@
+{
+  "name": "vibe-coding-jiuk-netflix",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}

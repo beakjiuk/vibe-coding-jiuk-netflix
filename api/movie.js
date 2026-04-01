@@ -1,7 +1,11 @@
 const TMDB_BASE = "https://api.themoviedb.org/3";
 
-export default async function handler(req, res) {
-  const apiKey = process.env.TMDB_API_KEY;
+function getApiKey() {
+  return process.env.TMDB_API_KEY || process.env.themoviedbAPI || "";
+}
+
+module.exports = async function handler(req, res) {
+  const apiKey = getApiKey();
   if (!apiKey) {
     res.status(500).json({ error: "Missing TMDB_API_KEY" });
     return;
@@ -27,4 +31,4 @@ export default async function handler(req, res) {
   } catch (e) {
     res.status(500).json({ error: e?.message || "Upstream fetch failed" });
   }
-}
+};
