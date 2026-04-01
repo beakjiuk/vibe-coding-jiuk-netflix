@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Now Playing | JIUKFLIX</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand" aria-label="JIUKFLIX">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">JIUKFLIX</span>
+        </div>
+        <div class="topbar__hint">NOW PLAYING</div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero" id="theater">
+        <h1 class="hero__title">Tonight’s Reel</h1>
+        <p class="hero__subtitle">포스터를 누르면 상세정보가 나오고 찜버튼을 누르면 관심영화로 이동됩니다.</p>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="rail" id="now" aria-label="영화 목록">
+        <div class="rail__head">
+          <div class="rail__title">상영중 TOP</div>
+        </div>
+
+        <div class="carousel" aria-label="포스터 캐러셀">
+          <div class="viewport" aria-label="캐러셀 뷰포트">
+            <div id="track" class="track" tabindex="0" aria-label="영화 카드 트랙"></div>
+          </div>
+          <button id="prevBtn" class="edgeBtn edgeBtn--left" type="button" aria-label="이전">‹</button>
+          <button id="nextBtn" class="edgeBtn edgeBtn--right" type="button" aria-label="다음">›</button>
+        </div>
+      </section>
+
+      <section class="fav" aria-label="관심 영화">
+        <div class="fav__head">
+          <div class="fav__title">관심 영화</div>
+          <div id="favCount" class="fav__count"></div>
+        </div>
+        <div id="favList" class="fav__list"></div>
+      </section>
+
+    </main>
+
+    <div id="modal" class="modal" aria-hidden="true">
+      <div id="modalBackdrop" class="modal__backdrop"></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="modalClose" class="modal__close" type="button" aria-label="닫기">✕</button>
+
+        <div id="modalHero" class="modalHero">
+          <div class="modalHero__shade"></div>
+          <div class="modalHero__content">
+            <div class="modalHero__poster" id="modalPosterWrap"></div>
+            <div class="modalHero__info">
+              <h2 id="modalTitle" class="modalHero__title"></h2>
+              <div id="modalChips" class="chips" aria-label="요약 정보"></div>
+              <p id="modalOverview" class="modalHero__overview"></p>
+              <div id="modalStats" class="stats" aria-label="상세 정보"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <span class="modal__hint">ESC 또는 바깥을 클릭하면 닫혀요.</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>Data provided by TMDB.</span>
+      </div>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
